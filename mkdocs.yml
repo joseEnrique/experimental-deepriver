@@ -1,0 +1,100 @@
+# Project information
+site_name: deep-river
+site_description: deep-river is a Python library for incremental deep learning and serves as extension for river.
+site_author: Cedric Kulbach
+site_url: https://github.com/kulbachcedric/deep-river
+
+# Repository
+repo_name: deep-river
+repo_url: https://github.com/online-ml/deep-river
+edit_uri: "https://github.com/online-ml/deep-river"
+
+# Copyright
+copyright: Copyright &copy; 2019 - 2022
+
+# Configuration
+theme:
+  name: material
+  custom_dir: docs/overrides
+  language: en
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  font: false
+  logo: img/logo_square.png
+  #favicon: material/cloud
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.indexes
+    - navigation.tracking
+
+# Extras
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/online-ml/deep-river
+  version:
+    - provider: mike
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: "1-3"
+  - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: vegalite
+          class: vegalite
+          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
+
+plugins:
+  - search
+  - awesome-pages
+  - autorefs
+  - charts
+  - mkdocs-jupyter:
+      execute: False
+      include: ["*.ipynb"]
+  - gen-files:
+      scripts:
+        - docs/scripts/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+            docstring_section_style: spacy
+            show_source: False
+            merge_init_into_class: True
+
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
+
+extra_css:
+  - stylesheets/extra.css
+
