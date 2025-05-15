@@ -7,9 +7,6 @@ from river import metrics
 from fluvialgen.past_forecast_batcher import PastForecastBatcher
 from deep_river.regression import RegressorInitialized, RollingRegressorInitialized
 import time, csv
-from pprint import pprint
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import cupy as cp
 
 dataset = synth.FriedmanDrift(
     drift_type='lea',
